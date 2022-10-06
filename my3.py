@@ -107,15 +107,39 @@ some1_reviewer.rate_hw(some1_student, 'Python', 10)
 
 some_student.calc_average()
 some1_student.calc_average()
-
+print(some_student < some1_student)
 print(some_student)
 print(some1_student)
 
 some_lecturer.lt_average()
 some1_lecturer.lt_average()
-
+print(some_lecturer < some1_lecturer)
 print(some_lecturer)
 print(some1_lecturer)
 
 print(some_reviewer)
 print(some1_reviewer)
+
+
+student_lt =[some_student, some1_student]
+def mid_grade_st(student_lt, course):
+    sum = 0
+    count = 0
+    for person in student_lt:
+        for a in person.grades[course]:
+            sum += a
+            count += 1
+            return sum/count
+
+lecturer_lt =[some_lecturer, some1_lecturer]
+def mid_grade_lt(lecturer_lt, course):
+    sum = 0
+    count = 0
+    for person in lecturer_lt:
+        for a in person.grade_st[course]:
+            sum += a
+            count += 1
+            return sum/count
+
+print( mid_grade_st(student_lt, 'Python'))
+print(mid_grade_lt(lecturer_lt, 'Python'))
